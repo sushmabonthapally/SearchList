@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import SearchInput from './Search Component/searchInputComponent'
+import SearchJson from './Search-list.json'
+import List from './Search Component/listComponent'
+import {BrowserRouter,Route} from 'react-router-dom' 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <SearchInput props = {SearchJson}/> */}
+      <BrowserRouter>
+      <Route path = '/'  exact component = {()=><SearchInput props={SearchJson}/>}/>
+      <Route path = '/new' component = {List}/>
+      </BrowserRouter>
     </div>
   );
 }
