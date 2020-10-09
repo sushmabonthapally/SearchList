@@ -8,7 +8,6 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      {/* <SearchInput props = {SearchJson}/> */}
       <BrowserRouter>
       <Route path = '/'  exact component = {()=><SearchInput props={SearchJson}/>}/>
       <Route path = '/new' component = {List}/>

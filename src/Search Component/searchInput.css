@@ -9,7 +9,6 @@
   input:focus{
     outline: none;
   }
-
   @media only screen and (min-width : 992px)
   {
     input[type = text]{
@@ -18,7 +17,6 @@
 
     .btn{
       max-width: 300px;
-      margin-left: 28%;
     }
   }
 
@@ -28,7 +26,7 @@
     }
   }
 
-  .btn
+  /* .btn
   {
   margin-top:3%;
   max-width: 80px;
@@ -38,6 +36,19 @@
   background-color : #337ab7;
   color:white;
   border-color: #2e6da4;
+  } */
+
+  .btn{
+   margin-top: 4px;
+   background-color : #337ab7;
+   color:white;
+   max-width: 80px;
+   border-radius:15px;
+   position: fixed;
+  }
+
+  .removeText{
+    display: none;
   }
   
 

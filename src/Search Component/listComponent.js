@@ -8,6 +8,7 @@ class list extends Component
     }
       render(){
           const finalRes = this.props.location.state.getValue;
+          console.log('hii',this.props.location)
           return(
            <div>
                <h4>Details of {finalRes.name}</h4>

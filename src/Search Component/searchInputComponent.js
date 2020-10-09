@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom'
 // import List from './listComponent'
 
 class SearchInput extends Component{
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state = {
             userName : '',
             textError: null,
@@ -19,19 +19,24 @@ class SearchInput extends Component{
 
     checkNameHandler=()=>{
         const arr = this.props.props;
-        let i;
-        for(i=0;i<=arr.length-1;i++){
+        console.log(arr);
+        let i=0;
+        for(i;i<=arr.length-1;i++){
             if(arr[i].name === this.state.userName)
             {
-            this.setState({loading:<p style = {{marginTop:'20px'}}><b>Fetching Results</b></p>})
+            this.setState({loading:<p style = {{marginTop:'10px'}}><b>Fetching Results...</b></p>})
             setTimeout(()=>{
             this.props.history.push('/new',{getValue : arr[i]})
-            },1000)
+            },2000)
             break;
             }
         }
-        if(i>arr.length-1)
-            this.setState({textError:<p style = {{marginTop:'20px'}}><b>‘Sorry No Matches found’.</b></p>})
+        if(this.state.userName === '')
+            this.setState({textError:<p style = {{marginTop:'10px'}}><b>Enter the Text</b></p>})
+        else if(i>arr.length-1)
+            this.setState({textError:<p style={{marginTop:'10px'}}><b>'Sorry No Matches found'</b></p>})
+        else
+            this.setState({textError:<p className="removeText"/>})
      } 
     render(){
         return (        
@@ -39,9 +44,9 @@ class SearchInput extends Component{
             <h2 style = {{marginTop :'1%'}}>Search List</h2>
             <div className = "search">
             <input type = "text" placeholder = "enter name..." value={this.state.userName} onChange = {(event)=>this.nameHandler(event)}/>
+            <button onClick ={this.checkNameHandler} className = "btn">Search</button>
             {this.state.loading}
             {this.state.textError}
-            <button onClick ={this.checkNameHandler} className = "btn">Search</button>
             </div>
             </div>
         )
